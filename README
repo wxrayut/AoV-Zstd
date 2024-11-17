@@ -1,0 +1,20 @@
+    _      __     __  _____    _      _ 
+   / \   __\ \   / / |__  /___| |_ __| |
+  / _ \ / _ \ \ / /    / // __| __/ _` |
+ / ___ \ (_) \ V /    / /_\__ \ || (_| |
+/_/   \_\___/ \_/    /____|___/\__\__,_|
+
+AoV-Zstd is a command-line tool for compressing and decompressing game files from Arena of Valor. 
+
+Documentation for AoV-Zstd, including build instructions, usage examples, Please begin by reading
+
+        https://github.com/wxrayut/AoV-Zstd/blob/main/Docs/USAGE.md
+
+For questions, feedback, or support, please contact:
+
+    Discord: https://discord.gg/ZkXPt8xSCt
+    GitHub Issues: https://github.com/wxrayut/AoV-Zstd/issues
+
+License:
+    This project is licensed under the GNU General Public License v3.0. You can redistribute it and/or 
+    modify it under the terms of the GPL 3.0.
