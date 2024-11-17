@@ -22,10 +22,17 @@ cd AoV-Zstd
 ```
 
 #### For Linux/macOS
+
+Install `libzstd-dev`:
+```
+sudo apt install libzstd-dev
+```
+
 Create a build directory
 ```
 mkdir build
 ```
+
 Run the following command in your terminal to compile using the provided `Makefile`:
 ```
 make
