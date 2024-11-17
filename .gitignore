@@ -1,0 +1,13 @@
+
+# Ignore build directory where compiled files and artifacts are generated.
+build/
+build_zstd_c/
+
+# Ignore test files.
+output/
+10620_imprint_decompressed.xml
+10620_imprint_compressed.xml
+
+# Ignore the compiled executable file.
+AoV_Zstd
+*.exe
