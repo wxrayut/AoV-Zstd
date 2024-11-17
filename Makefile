@@ -22,8 +22,9 @@ $(EXEC): $(OBJ_FILES)
 	$(CC) -o $@ $^ -lzstd
 	rm -rf $(BUILD_DIR)/*.o
 
+$(shell mkdir -p $(BUILD_DIR))
+
 $(BUILD_DIR)/%.o: $(SRC_DIR)/%.c
-	mkdir -p $(BUILD_DIR)
 	$(CC) $(CFLAGS) -c $< -o $@
 
 # Test case
