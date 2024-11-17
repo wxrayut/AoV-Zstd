@@ -40,22 +40,22 @@ make
 
 - After building, you can run the tests to verify everything is working correctly. To do this, simply run the following command:
 
-    - Decompress with directory option: Decompress files in a directory.
+    - Decompress with directory option:
     ```
     make decompress_with_dir_option
     ```
 
-    - Compress with directory option: Compress files from a directory:
+    - Compress with directory option:
     ```
     make compress_with_dir_option
     ```
 
-    - Decompress with file option: Decompress a specific file:
+    - Decompress with file option:
     ```
     make decompress_with_file_option
     ```
 
-    - Compress with file option: Compress a specific file:
+    - Compress with file option:
     ```
     make compress_with_file_option
     ```
