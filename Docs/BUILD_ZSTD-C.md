@@ -3,7 +3,7 @@
 
 This project provides automation scripts for building and setting up the Zstandard (Zstd) compression library. It includes two scripts: one for Windows (`build_zstd.bat`) and one for Linux/macOS (`build_zstd.sh`), both of which automate the process of cloning the Zstd repository, running a Python script to generate a single .c file, and cleaning up afterward.
 
-## Prerequisites
+## Requirements
 
 Before running the scripts, ensure you have the following software installed:
 
@@ -15,7 +15,7 @@ For both Linux/macOS and Windows:
 - **Python 3**: The script relies on Python to run `combine.py` to generate `zstd.c`.
     - Install Python 3: https://www.python.org/downloads/
 
-## Usage Instructions
+## Build Instructions
 
 #### For Linux/macOS
 Run the following commands in your terminal:
