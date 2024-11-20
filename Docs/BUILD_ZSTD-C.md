@@ -1,7 +1,7 @@
 
 # Zstd Build Automation
 
-This project provides automation scripts for building and setting up the Zstandard (Zstd) compression library. It includes two scripts: one for Windows (`build_zstd.bat`) and one for Linux/macOS (`build_zstd.sh`), both of which automate the process of cloning the Zstd repository, running a Python script to generate a single .c file, and cleaning up afterward.
+This project provides automation scripts for building and setting up the Zstandard (Zstd) compression library. It includes two scripts: one for Windows (`build_zstd.c.bat`) and one for Linux/macOS (`build_zstd.c.sh`), both of which automate the process of cloning the Zstd repository, running a Python script to generate a single .c file, and cleaning up afterward.
 
 ## Requirements
 
