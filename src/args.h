@@ -32,6 +32,8 @@ struct arguments {
 
     /* Flag to indicate whether to display the version information of the program. */ 
     bool version;
+
+    int _conflict;
 };
 
 typedef struct arguments arguments;
@@ -110,6 +112,21 @@ enum {
 
     /* Option to display version information. */
     OPT_VERSION               = 118
+};
+
+
+enum ArgsConflictType {
+
+    IS_CONFLICT = 1, 
+
+    /* cannot use both -c and -d modes together. */
+    MODE_ERROR = 999, 
+    
+    /* compression level is not applicable for decompression. */
+    NOT_SUPPORT_CMPL, 
+
+    /* cannot use both -f and -D options at the same time. */
+    INPUT_CONFLIC, 
 };
 
 

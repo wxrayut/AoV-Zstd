@@ -51,7 +51,13 @@ int main(int argc, char *argv[]) {
         clock_t start = clock();
 
         args_parse(argc, argv, &args);
-        
+
+        if (args._conflict == IS_CONFLICT) {
+            /* Free the loaded dictionary. */ 
+            bytes_free(dict);
+            return EXIT_FAILURE;
+        }
+
         if (!args.version) {
             version();
         }
@@ -111,10 +117,10 @@ int main(int argc, char *argv[]) {
 
                     if (ZSTD_isNotDecompressedData(b->data, AES_HEADER)) {
                         continue;
+                    } else {
+                        /* Compress the data. */
+                        b = ZSTD_aov_compress(b, dict, args.compressionlevel);
                     }
-
-                    /* Compress the data. */
-                    b = ZSTD_aov_compress(b, dict, args.compressionlevel);
 
                 } else if (args.decompress) {
                     /* Decompress the data. */ 
@@ -123,6 +129,9 @@ int main(int argc, char *argv[]) {
 
                 /* Determine output path if specified. */ 
                 if (args.output) {
+
+                    free(path);
+
                     path = path_join(args.output, entry->d_name);
                 }
 
@@ -147,6 +156,8 @@ int main(int argc, char *argv[]) {
 
                 /* Free the allocated memory for the bytes. */
                 bytes_free(b);
+
+                free(path);
             }
 
             /* Close the directory stream. */ 
@@ -163,7 +174,7 @@ int main(int argc, char *argv[]) {
                 if (ZSTD_isNotDecompressedData(b->data, AES_HEADER)) {
                     /* Pass. */
                 } else {
-                    /* Compress the data. */ 
+                    /* Compress the data. */
                     b = ZSTD_aov_compress(b, dict, args.compressionlevel);
                 }
 
@@ -217,7 +228,7 @@ int main(int argc, char *argv[]) {
         /* Handle case where no arguments are provided (optional). */ 
     }
 
-    /* Free the loaded dictionary memory. */ 
+    /* Free the loaded dictionary. */ 
     bytes_free(dict);
 
     return EXIT_SUCCESS;

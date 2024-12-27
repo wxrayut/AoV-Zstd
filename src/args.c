@@ -156,7 +156,7 @@ extern void args_parse(int argc, char *argv[], arguments *args) {
         printf("          cannot use both -c (--compress) and -d (--decompress) modes together.\n");
         printf("          choose either -c (--compress) or -d (--decompress), but not both.\n");
 
-        exit(EXIT_FAILURE);
+        args->_conflict = IS_CONFLICT;
     }
     
     if (args->decompress && args->compressionlevel) {
@@ -171,7 +171,7 @@ extern void args_parse(int argc, char *argv[], arguments *args) {
 
         printf("          compression level is not applicable for decompression.\n");
 
-        exit(EXIT_FAILURE);
+        args->_conflict = IS_CONFLICT;
     }
 
     if (args->dir && args->file) {
@@ -187,7 +187,7 @@ extern void args_parse(int argc, char *argv[], arguments *args) {
         printf("          cannot use both -f (--file) and -D (--dir) options at the same time.\n");
         printf("          choose either -f (--file) or -D (--dir), but not both.\n");
 
-        exit(EXIT_FAILURE);
+        args->_conflict = IS_CONFLICT;
     }
 
     /* Free memory allocated for option error tracking. */ 

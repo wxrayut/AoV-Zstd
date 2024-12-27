@@ -246,6 +246,8 @@ extern bytes *ZSTD_extract_CompressData(bytes *b) {
     /* Copy the compressed data into the result structure. */ 
     memcpy(result->data, b->data + fh, csize);
 
+    cleanup_resource(NULL, NULL, NULL, NULL, b);
+
     return result;
 }
 
@@ -308,8 +310,9 @@ extern bytes *ZSTD_aov_compress(bytes *b, bytes *dict, int compressionlevel) {
     result->size = out_buffer.pos;
 
     cleanup_resource(cctx, (cleanup_context_fn)ZSTD_freeCCtx, cdict, (cleanup_dict_fn)ZSTD_freeCDict, NULL);
+    cleanup_resource(NULL, NULL, NULL, NULL, b);
 
-    return ZSTD_setHeader(result, (uint32_t)b->size);
+    return ZSTD_setHeader(result, (uint32_t)in_buffer.size);
 }
 
 
@@ -375,6 +378,7 @@ extern bytes *ZSTD_aov_decompress(bytes *b, bytes *dict) {
     }
 
     cleanup_resource(dctx, (cleanup_context_fn)ZSTD_freeDCtx, ddict, (cleanup_dict_fn)ZSTD_freeDDict, NULL);
+    cleanup_resource(NULL, NULL, NULL, NULL, b);
 
     return result;
 
